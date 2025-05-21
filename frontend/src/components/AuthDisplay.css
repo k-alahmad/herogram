@@ -1,0 +1,92 @@
+.auth-display-container {
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+}
+
+.auth-display-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-display-container button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.auth-display-container button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.auth-error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.auth-info {
+  margin-top: 20px;
+  text-align: left;
+  background-color: #e9ecef;
+  border: 1px solid #dee2e6;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  word-break: break-all; 
+}
+
+.auth-info h3 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.auth-info p {
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: #495057;
+}
+
+.auth-info p code {
+  background-color: #f1f1f1;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.full-token-text {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.token-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.token-textarea {
+  width: 100%;
+  height: 80px;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 0.85em;
+  resize: vertical;
+  background-color: #ffffff;
+}

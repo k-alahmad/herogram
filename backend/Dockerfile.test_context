@@ -1,0 +1,20 @@
+# Use a minimal base image
+FROM alpine:latest
+
+# Set a temporary working directory for inspection
+WORKDIR /tmp/build_context_inspection
+
+# Copy the entire build context into this temporary directory
+COPY . .
+
+# List the contents of the temporary directory recursively
+# This shows everything that was included in the build context
+RUN ls -R /tmp/build_context_inspection/
+
+# Now, try to list the specific schema file path relative to the original WORKDIR
+# (which would be /app/backend in your main Dockerfile)
+# We'll look for it inside the copied content at /tmp/build_context_inspection
+RUN ls -l /tmp/build_context_inspection/prisma/schema.prisma
+
+# Keep the container running so you can inspect it if needed
+CMD ["sleep", "infinity"]

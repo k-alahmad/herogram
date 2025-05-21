@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: polls
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" 
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - "6379:6379" 
+  backend:
+    build: ./backend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://postgres:admin@db:5432/polls?schema=public
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: supersecretjwtkey 
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./backend:/herogram/backend 
+      - /app/backend/node_modules 
+    command: sh -c "npm install && npx prisma migrate deploy && npm run dev" 
+
+volumes:
+  db_data:
